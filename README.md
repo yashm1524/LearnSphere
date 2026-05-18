@@ -1,43 +1,49 @@
-# Student Management System Created Using Django
+# LearnSphere - Academic Management Platform
 
-## Features of this Project
+A role-based academic management platform built with Python and Django, designed to streamline administrative workflows for institutions with 100+ users across three roles: Admin, Staff, and Students.
 
-### A. Admin Users Can
-1. See Overall Summary Charts of Students Performances, Staff Performances, Courses, Subjects, Leave, etc.
-2. Manage Staff (Add, Update and Delete)
-3. Manage Students (Add, Update and Delete)
-4. Manage Course (Add, Update and Delete)
-5. Manage Subjects (Add, Update and Delete)
-6. Manage Sessions (Add, Update and Delete)
-7. View Student Attendance
-8. Review and Reply Student/Staff Feedback
-9. Review (Approve/Reject) Student/Staff Leave
+## Overview
 
-### B. Staff/Teachers Can
-1. See the Overall Summary Charts related to their students, their subjects, leave status, etc.
-2. Take/Update Students Attendance
-3. Add/Update Result
-4. Apply for Leave
-5. Send Feedback to HOD
+LearnSphere reduces manual staff data entry by 3-4 hours/week through automated feedback and leave workflows. It provides real-time dashboards for tracking courses, attendance, results, and leave requests across multiple academic data domains.
 
-### C. Students Can
-1. See the Overall Summary Charts related to their attendance, their subjects, leave status, etc.
-2. View Attendance
-3. View Result
-4. Apply for Leave
-5. Send Feedback to HOD
+## Tech Stack
 
+`Python` `Django` `SQLite` `HTML` `CSS` `Bootstrap` `JavaScript`
 
-## 📸 ScreenShots
+## Features
 
-<img src="ss/1.png"/>
-<img src="ss/2.png"/>
-<img src="ss/3.png"/>
-<img src="ss/4.png"/>
-<img src="ss/5.png"/>
+### Admin
+- View summary dashboards for student performance, staff activity, attendance, and leave
+- Manage Staff, Students, Courses, Subjects, and Sessions (Add, Update, Delete)
+- Review and approve/reject leave applications from staff and students
+- Review and reply to feedback submitted by staff and students
 
-| Admin| Staff| Student |
-|------|-------|---------|
+### Staff
+- View dashboards for their students, subjects, and leave status
+- Take and update student attendance
+- Add and update student results
+- Apply for leave and send feedback
+
+### Student
+- View personal dashboards for attendance, subjects, and leave status
+- View attendance records and results
+- Apply for leave and send feedback
+
+## Database Design
+
+The platform uses a normalised relational SQLite schema modelling the following entities:
+
+- **Users** - role-based access (Admin, Staff, Student)
+- **Courses and Subjects** - hierarchical academic structure
+- **Attendance** - session-wise tracking per student
+- **Results** - subject-wise performance records
+- **Leave** - application and approval workflow
+- **Feedback** - two-way communication between roles
+
+## Screenshots
+
+| Admin | Staff | Student |
+|-------|-------|---------|
 |<img src="ss/admin5.png" width="400">|<img src="ss/staff1.png" width="400">|<img src="ss/student1.png" width="400">|
 |<img src="ss/admin2.png" width="400">|<img src="ss/staff2.png" width="400">|<img src="ss/student2.png" width="400">|
 |<img src="ss/admin3.png" width="400">|<img src="ss/staff3.png" width="400">|<img src="ss/student3.png" width="400">|
@@ -45,193 +51,49 @@
 |<img src="ss/admin1.png" width="400">|<img src="ss/staff5.png" width="400">|<img src="ss/student5.png" width="400">|
 |<img src="ss/admin6.png" width="400">|<img src="ss/staff6.png" width="400">|<img src="ss/student6.png" width="400">|
 
+## How to Run Locally
 
-
-## How to Install and Run this project?
-
-### Pre-Requisites:
-1. Install Git Version Control
-[ https://git-scm.com/ ]
-
-2. Install Python Latest Version
-[ https://www.python.org/downloads/ ]
-
-3. Install Pip (Package Manager)
-[ https://pip.pypa.io/en/stable/installing/ ]
-
-*Alternative to Pip is Homebrew*
-
-### Installation
-**1. Create a Folder where you want to save the project**
-
-**2. Create a Virtual Environment and Activate**
-
-Install Virtual Environment First
-```
-$  pip install virtualenv
+**1. Clone the repository**
+```bash
+git clone https://github.com/yashm1524/LearnSphere.git
+cd LearnSphere
 ```
 
-Create Virtual Environment
+**2. Create and activate a virtual environment**
+```bash
+python -m venv venv
 
-For Windows
-```
-$  python -m venv venv
-```
-For Mac
-```
-$  python3 -m venv venv
-```
-For Linux
-```
-$  virtualenv .
+# Windows
+source venv/scripts/activate
+
+# Mac/Linux
+source venv/bin/activate
 ```
 
-Activate Virtual Environment
-
-For Windows
-```
-$  source venv/scripts/activate
+**3. Install dependencies**
+```bash
+pip install -r requirements.txt
 ```
 
-For Mac
-```
-$  source venv/bin/activate
-```
-
-For Linux
-```
-$  source bin/activate
+**4. Run migrations**
+```bash
+python manage.py migrate
 ```
 
-**3. Clone this project**
-```
-$  git clone https://github.com/jobic10/student-management-using-django.git
-```
-
-Then, Enter the project
-```
-$  cd student-management-using-django
+**5. Create a superuser (Admin)**
+```bash
+python manage.py createsuperuser
 ```
 
-**4. Install Requirements from 'requirements.txt'**
-```python
-$  pip3 install -r requirements.txt
+**6. Start the server**
+```bash
+python manage.py runserver
 ```
 
-**5. Add the hosts**
+Then open `http://127.0.0.1:8000` in your browser.
 
-- Got to settings.py file 
-- Then, On allowed hosts, Use **[]** as your host. 
-```python
-ALLOWED_HOSTS = []
-```
-*Do not use the fault allowed settings in this repo. It has security risk!*
+## Author
 
-
-**6. Now Run Server**
-
-Command for PC:
-```python
-$ python manage.py runserver
-```
-
-Command for Mac:
-```python
-$ python3 manage.py runserver
-```
-
-Command for Linux:
-```python
-$ python3 manage.py runserver
-```
-
-**7. Login Credentials**
-
-Create Super User (HOD)
-Command for PC:
-```
-$  python manage.py createsuperuser
-```
-
-Command for Mac:
-```
-$  python3 manage.py createsuperuser
-```
-
-Command for Linux:
-```
-$  python3 manage.py createsuperuser
-```
-
-
-
-Then Add Email and Password
-
-**or Use Default Credentials**
-
-*For HOD /SuperAdmin*
-Email: admin@admin.com
-Password: admin
-
-*For Staff*
-Email: staff@staff.com
-Password: staff
-
-*For Student*
-Email: student@student.com
-Password: student
-
-
-
-## Project's Journey
-- [x] Admin/Staff/Student Login
-- [x] Add and Edit Course
-- [x] Add and Edit Staff
-- [x] Add and Edit Student
-- [x] Add and Edit Subject
-- [x] Upload Staff's Picture
-- [x] Upload Student's Picture
-- [x] Sidebar Active Status
-- [x] Named URLs
-- [x] Model Forms for adding  student
-- [x] Model Forms for all
-- [x] Views Permission (MiddleWareMixin)
-- [x] Attendance and Update Attendance
-- [x] Password Reset Via Email
-- [x] Apply For Leave
-- [x] Students Can Check Attendance
-- [x] Check Email Availability
-- [x] Reply to Leave Applications
-- [x] Reply to Feedback
-- [x] Admin View Attendance
-- [x] Password Change for Admin, Staff and Students using *set_password()*
-- [x] Admin Profile Edit
-- [x] Staff Profile Edit
-- [x] Student Profile Edit
-- [x] Student Dashboard Fixed
-- [x] Passing Page Title From View  - Improved
-- [x] Staff Dashboard Fixed
-- [x] Admin Dashboard Fixed
-- [x] Firebase Web Push Notifications
-- [x] Staff Add Student's Result
-- [x] Staff Edit Result Using CBVs (Class Based Views)
-- [x] Google CAPTCHA
-- [x] Student View Result
-- [x] Change all links to be dynamic
-- [x] Code Restructure - Very Important
-
-
-## Questions I asked While Developing This
-- https://stackoverflow.com/questions/63829896/is-there-a-specific-way-of-adding-apps-in-django/
-
-
-## Helpful Links
-- https://stackoverflow.com/questions/55969952/how-can-i-avoid-a-user-from-registering-an-already-used-email-in-django
-- https://stackoverflow.com/questions/7562573/how-do-i-get-django-forms-to-show-the-html-required-attribute
-- https://stackoverflow.com/questions/40910149/django-exists-versus-doesnotexist
-- https://stackoverflow.com/questions/32576348/how-can-i-create-django-modelform-for-an-abstract-model
-- https://www.fomfus.com/articles/how-to-use-email-as-username-for-django-authentication-removing-the-username
-- https://stackoverflow.com/questions/64145745/create-user-missing-1-required-positional-argument-username?noredirect=1#64145844
-- https://stackoverflow.com/questions/29416478/change-form-field-value-before-saving
-- https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript
-- https://stackoverflow.com/questions/3429084/why-do-i-get-an-object-is-not-iterable-error
+**Yash Makvana**
+B.Tech CSE, National Institute of Technology Surat
+[LinkedIn](https://linkedin.com/in/YashMakvana1524) | [GitHub](https://github.com/yashm1524)
